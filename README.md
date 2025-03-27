@@ -24,14 +24,24 @@ cd ghana-phone-normalizer
 
 ### Basic Usage
 ```bash
-python normalize.py < input.txt > clean_numbers.txt
+python app.py < input.txt > clean_numbers.txt
 ```
 
 ### Interactive Mode
 
 ```bash
-python normalize.py
+python app.py
 > 233541234567
 > 0541234567
 > [Ctrl+D to process]
+```
+
+### Common Patterns
+Process a CSV file:
+```bash
+cut -d',' -f1 contacts.csv | python app.py > clean_numbers.txt
+```
+Combine with other commands:
+```bash
+grep "Ghana" contacts.json | jq '.phone' | python app.py
 ```
